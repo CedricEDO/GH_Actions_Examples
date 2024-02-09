@@ -1,0 +1,120 @@
+name: "Ex00 - Github Env variables context"
+
+on:
+  # manual workflow parameters 
+  workflow_dispatch:
+    inputs:
+
+#---------
+# JOBS
+#---------
+jobs:
+  gh-variables-in-steps:
+    runs-on: ubuntu-latest
+    environment: EX00
+    
+    steps:
+      - name: if-repository-boolean-01
+        if: ${{ vars.REPOSITORY-BOOLEAN }}
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+
+      - name: if-repository-boolean-02
+        if: ${{ vars.REPOSITORY-BOOLEAN == 'true' }}
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+      
+      - name: if-environment-boolean-01
+        if: ${{ vars.ENVIRONMENT-BOOLEAN }}
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+
+      - name: if-environment-boolean-02
+        if: ${{ vars.ENVIRONMENT-BOOLEAN == 'true' }}
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+
+      - name: if-repository-string-01
+        if: ${{ vars.REPOSITORY-STRING == 'OK' }}
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+
+      - name: if-environment-string-01
+        if: ${{ vars.ENVIRONMENT-STRING == 'OK' }}
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+
+            
+  repository-boolean-in-job-01:
+    runs-on: ubuntu-latest
+    environment: EX00
+    if: ${{ vars.REPOSITORY-BOOLEAN }}
+    steps:
+      - name: repository-boolean-in-job
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+          
+  repository-boolean-in-job-02:
+    runs-on: ubuntu-latest
+    environment: EX00
+    if: ${{ vars.REPOSITORY-BOOLEAN == 'true' }}
+    steps:
+      - name: repository-boolean-in-job
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+          
+  environment-boolean-in-job-01:
+    runs-on: ubuntu-latest
+    environment: EX00
+    if: ${{ vars.ENVIRONMENT-BOOLEAN }}
+    steps:
+      - name: environment-boolean-in-job
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+          
+  environment-boolean-in-job-02:
+    runs-on: ubuntu-latest
+    environment: EX00
+    if: ${{ vars.ENVIRONMENT-BOOLEAN == 'true' }}
+    steps:
+      - name: environment-boolean-in-job
+        run: |
+          echo "${{ vars.REPOSITORY-BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
+          echo "${{ vars.REPOSITORY-STRING }}"
+          echo "${{ vars.ENVIRONMENT-STRING }}"
+
+  repository-boolean-in-reusable-workflow-01:
+    if: ${{ vars.REPOSITORY-BOOLEAN }}
+    uses: ./.github/workflows/hello-world.yml
+    
+  environment-boolean-in-reusable-workflow-01:
+    if: ${{ vars.ENVIRONMENT-BOOLEAN == 'true' }}
+    uses: ./.github/workflows/hello-world.yml
