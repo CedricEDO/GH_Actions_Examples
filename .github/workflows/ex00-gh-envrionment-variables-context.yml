@@ -5,6 +5,11 @@ on:
   workflow_dispatch:
     inputs:
 
+env:
+  WORKFLOW_BOOLEAN: true
+  WORKFLOW_BOOLEAN_BIS: 'true'
+  WORKFLOW_STRING: 'OK'
+
 #---------
 # JOBS
 #---------
@@ -111,10 +116,59 @@ jobs:
           echo "${{ vars.REPOSITORY_STRING }}"
           echo "${{ vars.ENVIRONMENT_STRING }}"
 
+  WORK_BOO-in-job-01:
+    runs-on: ubuntu-latest
+    environment: EX00
+    if: ${{ vars.WORKFLOW_BOOLEAN }}
+    steps:
+      - name: WORKFLOW_BOOLEAN-in-job
+        run: |
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
+          
+  WORK_BOO_BIS-in-job-12:
+    runs-on: ubuntu-latest
+    environment: EX00
+    if: ${{ vars.WORKFLOW_BOOLEAN_BIS }}
+    steps:
+      - name: WORKFLOW_BOOLEAN_BIS-in-job
+        run: |
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
+
   REPO_BOO-in-reusable-workflow-01:
     if: ${{ vars.REPOSITORY_BOOLEAN }}
     uses: ./.github/workflows/hello-world.yml
-    
+
+
+  REPO_BOO-in-reusable-workflow-02:
+    if: ${{ vars.REPOSITORY_BOOLEAN == 'true' }}
+    uses: ./.github/workflows/hello-world.yml
+
   ENV_BOO-in-reusable-workflow-01:
+    if: ${{ vars.ENVIRONMENT_BOOLEAN }}
+    uses: ./.github/workflows/hello-world.yml
+    
+  ENV_BOO-in-reusable-workflow-02:
     if: ${{ vars.ENVIRONMENT_BOOLEAN == 'true' }}
+    uses: ./.github/workflows/hello-world.yml
+
+  WORK_BOO-in-reusable-workflow-01:
+    if: ${{ env.WORKFLOW_BOOLEAN }}
+    uses: ./.github/workflows/hello-world.yml
+
+  WORK_BOO-in-reusable-workflow-02:
+    if: ${{ env.WORKFLOW_BOOLEAN == 'true' }}
+    uses: ./.github/workflows/hello-world.yml
+
+  WORK_BOO_BIS-in-reusable-workflow-01:
+    if: ${{ env.WORKFLOW_BOOLEAN_BIS }}
+    uses: ./.github/workflows/hello-world.yml
+
+  WORK_BOO_BIS-in-reusable-workflow-02:
+    if: ${{ env.WORKFLOW_BOOLEAN_BIS == 'true' }}
     uses: ./.github/workflows/hello-world.yml
