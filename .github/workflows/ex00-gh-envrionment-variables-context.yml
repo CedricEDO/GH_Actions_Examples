@@ -14,107 +14,107 @@ jobs:
     environment: EX00
     
     steps:
-      - name: if-repository-boolean-01
-        if: ${{ vars.REPOSITORY-BOOLEAN }}
+      - name: if-REPOSITORY_BOOLEAN-01
+        if: ${{ vars.REPOSITORY_BOOLEAN }}
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
 
-      - name: if-repository-boolean-02
-        if: ${{ vars.REPOSITORY-BOOLEAN == 'true' }}
+      - name: if-REPOSITORY_BOOLEAN-02
+        if: ${{ vars.REPOSITORY_BOOLEAN == 'true' }}
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
       
-      - name: if-environment-boolean-01
-        if: ${{ vars.ENVIRONMENT-BOOLEAN }}
+      - name: if-ENVIRONMENT_BOOLEAN-01
+        if: ${{ vars.ENVIRONMENT_BOOLEAN }}
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
 
-      - name: if-environment-boolean-02
-        if: ${{ vars.ENVIRONMENT-BOOLEAN == 'true' }}
+      - name: if-ENVIRONMENT_BOOLEAN-02
+        if: ${{ vars.ENVIRONMENT_BOOLEAN == 'true' }}
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
 
       - name: if-repository-string-01
-        if: ${{ vars.REPOSITORY-STRING == 'OK' }}
+        if: ${{ vars.REPOSITORY_STRING == 'OK' }}
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
 
-      - name: if-environment-string-01
-        if: ${{ vars.ENVIRONMENT-STRING == 'OK' }}
+      - name: if-ENVIRONMENT_STRING-01
+        if: ${{ vars.ENVIRONMENT_STRING == 'OK' }}
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
 
             
-  repository-boolean-in-job-01:
+  REPOSITORY_BOOLEAN-in-job-01:
     runs-on: ubuntu-latest
     environment: EX00
-    if: ${{ vars.REPOSITORY-BOOLEAN }}
+    if: ${{ vars.REPOSITORY_BOOLEAN }}
     steps:
-      - name: repository-boolean-in-job
+      - name: REPOSITORY_BOOLEAN-in-job
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
           
-  repository-boolean-in-job-02:
+  REPOSITORY_BOOLEAN-in-job-02:
     runs-on: ubuntu-latest
     environment: EX00
-    if: ${{ vars.REPOSITORY-BOOLEAN == 'true' }}
+    if: ${{ vars.REPOSITORY_BOOLEAN == 'true' }}
     steps:
-      - name: repository-boolean-in-job
+      - name: REPOSITORY_BOOLEAN-in-job
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
           
-  environment-boolean-in-job-01:
+  ENVIRONMENT_BOOLEAN-in-job-01:
     runs-on: ubuntu-latest
     environment: EX00
-    if: ${{ vars.ENVIRONMENT-BOOLEAN }}
+    if: ${{ vars.ENVIRONMENT_BOOLEAN }}
     steps:
-      - name: environment-boolean-in-job
+      - name: ENVIRONMENT_BOOLEAN-in-job
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
           
-  environment-boolean-in-job-02:
+  ENVIRONMENT_BOOLEAN-in-job-02:
     runs-on: ubuntu-latest
     environment: EX00
-    if: ${{ vars.ENVIRONMENT-BOOLEAN == 'true' }}
+    if: ${{ vars.ENVIRONMENT_BOOLEAN == 'true' }}
     steps:
-      - name: environment-boolean-in-job
+      - name: ENVIRONMENT_BOOLEAN-in-job
         run: |
-          echo "${{ vars.REPOSITORY-BOOLEAN }}"
-          echo "${{ vars.ENVIRONMENT-BOOLEAN }}"
-          echo "${{ vars.REPOSITORY-STRING }}"
-          echo "${{ vars.ENVIRONMENT-STRING }}"
+          echo "${{ vars.REPOSITORY_BOOLEAN }}"
+          echo "${{ vars.ENVIRONMENT_BOOLEAN }}"
+          echo "${{ vars.REPOSITORY_STRING }}"
+          echo "${{ vars.ENVIRONMENT_STRING }}"
 
-  repository-boolean-in-reusable-workflow-01:
-    if: ${{ vars.REPOSITORY-BOOLEAN }}
+  REPOSITORY_BOOLEAN-in-reusable-workflow-01:
+    if: ${{ vars.REPOSITORY_BOOLEAN }}
     uses: ./.github/workflows/hello-world.yml
     
-  environment-boolean-in-reusable-workflow-01:
-    if: ${{ vars.ENVIRONMENT-BOOLEAN == 'true' }}
+  ENVIRONMENT_BOOLEAN-in-reusable-workflow-01:
+    if: ${{ vars.ENVIRONMENT_BOOLEAN == 'true' }}
     uses: ./.github/workflows/hello-world.yml
