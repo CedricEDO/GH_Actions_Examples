@@ -63,7 +63,7 @@ jobs:
           echo "${{ vars.ENVIRONMENT_STRING }}"
 
             
-  REPOSITORY_BOOLEAN-in-job-01:
+  REPO_BOO-in-job-01:
     runs-on: ubuntu-latest
     environment: EX00
     if: ${{ vars.REPOSITORY_BOOLEAN }}
@@ -75,7 +75,7 @@ jobs:
           echo "${{ vars.REPOSITORY_STRING }}"
           echo "${{ vars.ENVIRONMENT_STRING }}"
           
-  REPOSITORY_BOOLEAN-in-job-02:
+  REPO_BOO-in-job-02:
     runs-on: ubuntu-latest
     environment: EX00
     if: ${{ vars.REPOSITORY_BOOLEAN == 'true' }}
@@ -87,7 +87,7 @@ jobs:
           echo "${{ vars.REPOSITORY_STRING }}"
           echo "${{ vars.ENVIRONMENT_STRING }}"
           
-  ENVIRONMENT_BOOLEAN-in-job-01:
+  ENV_BOO-in-job-01:
     runs-on: ubuntu-latest
     environment: EX00
     if: ${{ vars.ENVIRONMENT_BOOLEAN }}
@@ -99,7 +99,7 @@ jobs:
           echo "${{ vars.REPOSITORY_STRING }}"
           echo "${{ vars.ENVIRONMENT_STRING }}"
           
-  ENVIRONMENT_BOOLEAN-in-job-02:
+  ENV_BOO-in-job-02:
     runs-on: ubuntu-latest
     environment: EX00
     if: ${{ vars.ENVIRONMENT_BOOLEAN == 'true' }}
@@ -111,10 +111,10 @@ jobs:
           echo "${{ vars.REPOSITORY_STRING }}"
           echo "${{ vars.ENVIRONMENT_STRING }}"
 
-  REPOSITORY_BOOLEAN-in-reusable-workflow-01:
+  REPO_BOO-in-reusable-workflow-01:
     if: ${{ vars.REPOSITORY_BOOLEAN }}
     uses: ./.github/workflows/hello-world.yml
     
-  ENVIRONMENT_BOOLEAN-in-reusable-workflow-01:
+  ENV_BOO-in-reusable-workflow-01:
     if: ${{ vars.ENVIRONMENT_BOOLEAN == 'true' }}
     uses: ./.github/workflows/hello-world.yml
